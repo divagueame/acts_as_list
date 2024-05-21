@@ -23,7 +23,8 @@ if defined?(ActiveRecord::VERSION) &&
   ActiveRecord::Base.raise_in_transactional_callbacks = true
 end
 
-db_config = YAML.load_file(File.expand_path("../database.yml", __FILE__)).fetch(ENV["DB"] || "sqlite")
+db_config_file = ENV["CI"] ? "../ci_database.yml" : "../database.yml"
+db_config = YAML.load_file(File.expand_path(db_config_file, __FILE__)).fetch(ENV["DB"] || "sqlite")
 ActiveRecord::Base.establish_connection(db_config)
 ActiveRecord::Schema.verbose = false
 

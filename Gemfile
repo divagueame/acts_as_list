@@ -3,7 +3,6 @@ source "http://rubygems.org"
 gemspec
 
 gem "rake"
-gem "appraisal"
 
 group :development do
   gem "github_changelog_generator", "1.9.0"
@@ -20,9 +19,13 @@ group :sqlite do
 end
 
 group :postgresql do
-  gem "pg", "~> 1.2.0"
+  gem "pg", "~> 1.3.0"
 end
 
 group :mysql do
   gem "mysql2", "~> 0.5.0"
+end
+
+if ENV["RAILS_VERSION"]
+  gem "activerecord", ENV["RAILS_VERSION"]
 end

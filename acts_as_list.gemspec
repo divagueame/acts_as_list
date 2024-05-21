@@ -29,6 +29,13 @@ Gem::Specification.new do |s|
 
 
   # Dependencies (installed via "bundle install")
-  s.add_dependency "activerecord", ">= 4.2"
+  # s.add_dependency "activerecord", "~> 6.0"
+  # s.add_dependency "activerecord", ">= 4.2"
   s.add_development_dependency "bundler", ">= 1.0.0"
+  s.add_development_dependency "minitest", "~> 5.0"
+  s.add_development_dependency "minitest-hooks"
+  s.add_development_dependency "mocha"
+  s.add_development_dependency "mysql2", "~> 0.5.0"
+  s.add_development_dependency "pg", "~> 1.2"
+  s.add_development_dependency "sqlite3", "~> 1.4"
 end
